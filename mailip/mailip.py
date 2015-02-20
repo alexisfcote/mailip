@@ -14,13 +14,9 @@ from email.mime.text import MIMEText
 
 
 varargin = sys.argv
-website = "http://23.95.33.126"
-port = "80"
-#website = "http://192.3.54.48"
-#port = "18888"
-#website = "http://echoip.com"
-#port = "80"
-
+website = ("http://23.95.33.126","http://192.3.54.48","http://echoip.com"
+            ,"wtfismyip.com/text")
+port = ("80","18888","80","80")
 
 def main():
     if len(varargin)==1: # If no arg, try to load the credentials from file
@@ -61,19 +57,19 @@ def main():
     file.close()
 
 # Get ip adress from web server (mine or ipecho.net defined in global var).
-    nbtries =5;
-    success=0;
-    tries=0;
+    nbtries = len(website)
+    success=0
+    tries=0
     while(tries<nbtries and success==0) :
         try :
-            print(website + ":" + port)
-            s = urllib.request.urlopen(website + ':' + port ,timeout=10)
+            print(website[tries] + ":" + port[tries])
+            s = urllib.request.urlopen(website[tries] + ':' + port[tries] ,timeout=3)
             success=1
         except :
             tries +=1
             print(tries)
     if tries>=nbtries :
-        sys.exit('failed to connect to server')
+        sys.exit('failed to connect to servers')
 
     else :
          ip = s.read()
