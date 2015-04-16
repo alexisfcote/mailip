@@ -14,7 +14,7 @@ from email.mime.text import MIMEText
 
 
 varargin = sys.argv
-website = ("http://23.95.33.126","http://192.3.54.48","http://echoip.com"
+website = ("http://23.95.33.126/ip/","http://echoip.com"
             ,"wtfismyip.com/text")
 port = ("80","18888","80","80")
 
