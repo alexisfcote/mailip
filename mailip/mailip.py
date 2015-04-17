@@ -16,7 +16,7 @@ from email.mime.text import MIMEText
 varargin = sys.argv
 website = ("http://23.95.33.126/ip/","http://echoip.com"
             ,"wtfismyip.com/text")
-port = ("80","18888","80","80")
+port = ("80","80","80")
 
 def main():
     if len(varargin)==1: # If no arg, try to load the credentials from file
@@ -62,8 +62,8 @@ def main():
     tries=0
     while(tries<nbtries and success==0) :
         try :
-            print(website[tries] + ":" + port[tries])
-            s = urllib.request.urlopen(website[tries] + ':' + port[tries] ,timeout=3)
+            print(website[tries])
+            s = urllib.request.urlopen(website[tries] ,timeout=3)
             success=1
         except :
             tries +=1
