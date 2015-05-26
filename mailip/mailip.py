@@ -11,26 +11,22 @@ import time
 import smtplib
 import bz2
 from email.mime.text import MIMEText
+import argparse
 
 
-varargin = sys.argv
+parser = argparse.ArgumentParser(description='Mailip is used to send yourself an e-mail to your gmail account containing the ip adress of the machine if it has changed. On the first use you need to provide your Gmail credentials by adding the --cred argument')
+parser.add_argument('--cred', nargs=2,metavar=('G_address', 'G_password'), help = "your Gmail credentials for the first use.")
+
+args = parser.parse_args()
 website = ("http://23.95.33.126/ip/","http://echoip.com"
             ,"wtfismyip.com/text")
 port = ("80","80","80")
-
 def main():
-    if len(varargin)==1: # If no arg, try to load the credentials from file
+    if not args.cred: # If no arg, try to load the credentials from file
         cred = loadCred()
-    elif len(varargin)==3: # If supplied with gmail and password, save the credential to a file
-        if isinstance(varargin[1],str) and isinstance(varargin[2],str):
-            cred = [str(varargin[1]),str(varargin[2])]
+    else: # If supplied with gmail and password, save the credential to a file
+            cred = args.cred
             CreateCred(cred)
-        else:
-            print('usage : python3 mailip.py [gmail password]')
-            sys.exit()
-    else:
-        print('usage : python3 mailip.py [gmail password]')
-        sys.exit()
 
     print('Started')
     print(__file__)
