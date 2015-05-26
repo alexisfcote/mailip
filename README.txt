@@ -6,6 +6,6 @@ Mailip is used to send yourself an e-mail to your gmail account containing the i
 
 Common usage is :
 	first time used:
-		mailip myname@gmail.com mygmailpassword
+		mailip --cred myname@gmail.com mygmailpassword
 	then:
 		mailip
