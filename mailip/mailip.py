@@ -128,8 +128,7 @@ def CreateCred(cred):
     # Create and encrypt the string user:password with bz2 encode
     user = bz2.compress((cred[0] + ':' + cred[1]).encode())
     # Save the string to the mailipCred file
-    os.chdir(os.path.expanduser("~/.config/mailip"))
-    with  open('mailipCred','wb') as w:
+    with  open(os.path.expanduser("~/.config/mailip/")+'mailipCred','wb') as w:
         w.write(user)
         w.close()
 
