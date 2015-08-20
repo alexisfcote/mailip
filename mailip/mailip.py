@@ -14,7 +14,7 @@ from email.mime.text import MIMEText
 import argparse
 
 
-website = ("http://23.95.33.126/ip/","http://echoip.com"
+website = ("http://23.95.113.6/ip/","http://echoip.com"
             ,"wtfismyip.com/text")
 port = ("80","80","80")
 def main():
