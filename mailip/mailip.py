@@ -29,7 +29,6 @@ def main():
             CreateCred(cred)
 
     print('Started')
-    print(__file__)
     if (platform.system()=='Linux'):
         print('Linux')
     if (platform.system()=='Windows'):
